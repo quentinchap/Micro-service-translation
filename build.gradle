@@ -13,6 +13,7 @@ buildscript {
 	}
 }
 
+apply plugin: 'idea'
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-spring'
 apply plugin: 'eclipse-wtp'
@@ -55,4 +56,16 @@ dependencies {
 	runtime('org.springframework.boot:spring-boot-devtools')
 	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('org.jetbrains.kotlin:kotlin-test')
+	testCompile('org.jetbrains.kotlin:kotlin-test-junit')
+	testCompile('com.github.fakemongo:fongo:2.2.0-RC1')
+	testCompile('org.springframework.boot:spring-boot-starter-data-mongodb')
+
+}
+
+idea {
+	module {
+		inheritOutputDirs = false
+		outputDir = file("$buildDir/classes/kotlin/main")
+	}
 }
