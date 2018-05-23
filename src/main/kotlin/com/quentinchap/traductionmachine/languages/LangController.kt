@@ -29,22 +29,20 @@ class LangController @Autowired constructor(
     }
 
     @GetMapping
-    fun getAll(): List<Lang> {
+    fun getAll(): List<Lang>{
         return langService.findAll()
     }
 
     @GetMapping("/{id}")
-    fun getById(@PathVariable id: String): Optional<Lang> {
-        return langService.findById(id)
-    }
+    fun getById(@PathVariable id: String): Optional<Lang> = langService.findById(id)
+
 
     @PutMapping("/{id}")
     fun updateById(
             @PathVariable id: String,
             @Valid @RequestBody @ApiParam(value = "Updated lang object", required = true) request: Lang,
-            errors: Errors): Optional<Lang> {
-        return langService.updateById(id, request)
-    }
+            errors: Errors): Optional<Lang> = langService.updateById(id, request)
+
 
     @DeleteMapping("/{id}")
     fun delete(@PathVariable id: String) {
