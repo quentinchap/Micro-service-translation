@@ -32,9 +32,9 @@ abstract class TranslationTestWithFongo {
     companion object {
         val lang = Lang(null, "test", "test", Locale("fr"))
 
-        val tradHome: Map<String, String> = mapOf("WELCOME" to "bonjour")
+        val tradHome: MutableMap<String, String> = mutableMapOf("WELCOME" to "bonjour")
 
-        val trad: Map<String, Any> = mapOf("home" to tradHome)
+        val trad: MutableMap<String, Any> = mutableMapOf("home" to tradHome)
 
         val TEST_TRANSLATION_1 = Translation(null, lang, trad)
     }
